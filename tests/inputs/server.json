@@ -1,0 +1,21 @@
+{
+    "version": "1.21.4",
+    "moonPhase": "WAXING_GIBBOUS",
+    "timestamps": { "newDayTime": 39600, "serverTimeOfDay": 52401 },
+    "status": { "hasStorm": false, "isThundering": false },
+    "stats": {
+        "time": 14900,
+        "fullTime": 1545782900,
+        "maxPlayers": 300,
+        "numOnlinePlayers": 152,
+        "numOnlineNomads": 3,
+        "numResidents": 46971,
+        "numNomads": 27244,
+        "numTowns": 4185,
+        "numTownBlocks": 421485,
+        "numNations": 471,
+        "numQuarters": 21193,
+        "numCuboids": 34036
+    },
+    "voteParty": { "target": 5000, "numRemaining": 138 }
+}

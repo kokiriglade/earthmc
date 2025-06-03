@@ -1,0 +1,34 @@
+---
+source: tests/test_server.rs
+expression: parsed
+---
+Server {
+    version: "1.21.4",
+    moon_phase: WaxingGibbous,
+    timestamps: ServerTimestamps {
+        new_day_time: 39600,
+        server_time_of_day: 52401,
+    },
+    status: ServerStatus {
+        has_storm: false,
+        is_thundering: false,
+    },
+    stats: ServerStats {
+        time: 14900,
+        full_time: 1545782900,
+        max_players: 300,
+        num_online_players: 152,
+        num_online_nomads: 3,
+        num_residents: 46971,
+        num_nomads: 27244,
+        num_towns: 4185,
+        num_town_blocks: 421485,
+        num_nations: 471,
+        num_quarters: 21193,
+        num_cuboids: 34036,
+    },
+    vote_party: VoteParty {
+        target: 5000,
+        num_remaining: 138,
+    },
+}
