@@ -1,0 +1,135 @@
+---
+source: tests/test_nation.rs
+expression: parsed
+---
+[
+    Nation {
+        name: "Yukon",
+        uuid: 3ce63924-44f9-404a-93e0-2fe87a22edd9,
+        board: Some(
+            "Larger than Life",
+        ),
+        dynmap_colour: "FFA500",
+        dynmap_outline: "FFFF00",
+        wiki: None,
+        king: NamedIdGeneric {
+            name: "tuzzzie",
+            uuid: 8391474f-4b57-412a-a835-96bd2c253219,
+        },
+        capital: NamedIdGeneric {
+            name: "Teslin",
+            uuid: 969d4960-f082-4be0-9e32-f14ed0b7cd50,
+        },
+        timestamps: NationTimestamps {
+            registered: 1660454906803,
+        },
+        status: NationStatus {
+            is_public: true,
+            is_open: true,
+            is_neutral: true,
+        },
+        stats: NationStats {
+            num_town_blocks: 1764,
+            num_residents: 50,
+            num_towns: 20,
+            num_allies: 5,
+            num_enemies: 2,
+            balance: 1790.0,
+        },
+        coordinates: NationCoordinates {
+            spawn: WorldPosition {
+                world: "earth",
+                x: -24932.5,
+                y: 99.1875,
+                z: -11442.5,
+                pitch: 0.010773102,
+                yaw: 179.99843,
+            },
+        },
+        residents: [
+            NamedIdGeneric {
+                name: "TheGrimReaper_34",
+                uuid: 33cfd874-1554-4cbb-b54a-9ff93667a954,
+            },
+            NamedIdGeneric {
+                name: "kundumji",
+                uuid: 44861aef-8d09-4a16-8654-a5db565cf0bb,
+            },
+            NamedIdGeneric {
+                name: "Dandelion23062",
+                uuid: 66c71f8c-1b06-4719-9f64-39d1b8dbb4e2,
+            },
+            NamedIdGeneric {
+                name: "Madlykeanu",
+                uuid: 36ad238b-e8e4-40c5-9be3-feb97e9fb5db,
+            },
+            NamedIdGeneric {
+                name: "cletustturtle",
+                uuid: 36ff784a-234b-4a0f-a5bf-c1d76ef3a2c5,
+            },
+        ],
+        towns: [
+            NamedIdGeneric {
+                name: "Corlu",
+                uuid: d77e7fc1-aed9-4402-9000-4ed2f5a07eab,
+            },
+            NamedIdGeneric {
+                name: "Ram_Ranch",
+                uuid: 78db92c0-e222-42b7-865f-1ede376503ef,
+            },
+            NamedIdGeneric {
+                name: "Kruzof",
+                uuid: 6f10a165-cbd1-481d-935c-3e1d9cd6d643,
+            },
+            NamedIdGeneric {
+                name: "Aduna",
+                uuid: 089e67b0-0cd6-4d2e-8348-34a0d603ee06,
+            },
+            NamedIdGeneric {
+                name: "Slushberg",
+                uuid: 3b58b9c4-3124-4f06-8a1f-439b122325f0,
+            },
+        ],
+        allies: [
+            NamedIdGeneric {
+                name: "Venice",
+                uuid: 5341d292-28bb-4c8e-a404-0076cfa2f478,
+            },
+            NamedIdGeneric {
+                name: "Aland",
+                uuid: bc7d0767-7c81-4090-87be-6ee61d840410,
+            },
+            NamedIdGeneric {
+                name: "Kalaallit_Nunaat",
+                uuid: 18fc4239-9a69-48a2-ad0b-5cd45880d04b,
+            },
+            NamedIdGeneric {
+                name: "Tassie",
+                uuid: 2e36d7c8-5ea7-49d8-bd9a-d99b033be83f,
+            },
+            NamedIdGeneric {
+                name: "Germany",
+                uuid: d7833c7a-2fe6-4f26-9120-00e0759c555f,
+            },
+        ],
+        enemies: [
+            NamedIdGeneric {
+                name: "Mongolia",
+                uuid: becfc4fd-6cc6-4f9c-aa3c-2ea542ce6236,
+            },
+            NamedIdGeneric {
+                name: "Russia",
+                uuid: a43c4aff-f472-4fe2-9f77-c307dda1defc,
+            },
+        ],
+        sanctioned: [],
+        ranks: {
+            Chancellor: [
+                "Fruitloopins",
+                "tuzzzie",
+            ],
+            Colonist: [],
+            Diplomat: [],
+        },
+    },
+]
