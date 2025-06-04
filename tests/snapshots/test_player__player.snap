@@ -1,0 +1,103 @@
+---
+source: tests/test_player.rs
+expression: parsed
+---
+[
+    Player {
+        name: "Fruitloopins",
+        uuid: fed0ec4a-f1ad-4b97-9443-876391668b34,
+        title: Some(
+            "<rainbow>King",
+        ),
+        surname: Some(
+            "of Yukon",
+        ),
+        formatted_name: "<rainbow>King Fruitloopins of Yukon",
+        about: Some(
+            "CEO of this feature",
+        ),
+        town: NamedIdGeneric {
+            name: Some(
+                "Teslin",
+            ),
+            uuid: Some(
+                969d4960-f082-4be0-9e32-f14ed0b7cd50,
+            ),
+        },
+        nation: NamedIdGeneric {
+            name: Some(
+                "Yukon",
+            ),
+            uuid: Some(
+                3ce63924-44f9-404a-93e0-2fe87a22edd9,
+            ),
+        },
+        timestamps: PlayerTimestamps {
+            registered: 1651299304371,
+            joined_town_at: Some(
+                1701704799323,
+            ),
+            last_online: Some(
+                1711116371655,
+            ),
+        },
+        status: PlayerStatus {
+            is_online: true,
+            is_npc: false,
+            is_mayor: false,
+            is_king: false,
+            has_town: true,
+            has_nation: true,
+        },
+        stats: PlayerStats {
+            balance: 2838.0,
+            num_friends: 1,
+        },
+        perms: TownyPermissions {
+            build: TownyPermissionSet {
+                resident: false,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            destroy: TownyPermissionSet {
+                resident: false,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            switch: TownyPermissionSet {
+                resident: false,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            item_use: TownyPermissionSet {
+                resident: false,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            flags: TownyPermissionFlags {
+                pvp: false,
+                explosion: false,
+                fire: false,
+                mobs: false,
+            },
+        },
+        ranks: PlayerRanks {
+            town_ranks: [
+                Councillor,
+            ],
+            nation_ranks: [
+                Chancellor,
+            ],
+        },
+        friends: [
+            NamedIdGeneric {
+                name: "tuzzzie",
+                uuid: 8391474f-4b57-412a-a835-96bd2c253219,
+            },
+        ],
+    },
+]

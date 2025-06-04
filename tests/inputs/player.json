@@ -1,0 +1,81 @@
+[
+    {
+        "name": "Fruitloopins",
+        "uuid": "fed0ec4a-f1ad-4b97-9443-876391668b34",
+        "title": "<rainbow>King",
+        "surname": "of Yukon",
+        "formattedName": "<rainbow>King Fruitloopins of Yukon",
+        "about": "CEO of this feature",
+        "town": {
+            "name": "Teslin",
+            "uuid": "969d4960-f082-4be0-9e32-f14ed0b7cd50"
+        },
+        "nation": {
+            "name": "Yukon",
+            "uuid": "3ce63924-44f9-404a-93e0-2fe87a22edd9"
+        },
+        "timestamps": {
+            "registered": 1651299304371,
+            "joinedTownAt": 1701704799323,
+            "lastOnline": 1711116371655
+        },
+        "status": {
+            "isOnline": true,
+            "isNPC": false,
+            "isMayor": false,
+            "isKing": false,
+            "hasTown": true,
+            "hasNation": true
+        },
+        "stats": {
+            "balance": 2838,
+            "numFriends": 1
+        },
+        "perms": {
+            "build": [
+                false,
+                false,
+                false,
+                false
+            ],
+            "destroy": [
+                false,
+                false,
+                false,
+                false
+            ],
+            "switch": [
+                false,
+                false,
+                false,
+                false
+            ],
+            "itemUse": [
+                false,
+                false,
+                false,
+                false
+            ],
+            "flags": {
+                "pvp": false,
+                "explosion": false,
+                "fire": false,
+                "mobs": false
+            }
+        },
+        "ranks": {
+            "townRanks": [
+                "Councillor"
+            ],
+            "nationRanks": [
+                "Chancellor"
+            ]
+        },
+        "friends": [
+            {
+                "name": "tuzzzie",
+                "uuid": "8391474f-4b57-412a-a835-96bd2c253219"
+            }
+        ]
+    }
+]

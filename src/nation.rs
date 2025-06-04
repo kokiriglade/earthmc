@@ -25,7 +25,8 @@ pub struct Nation {
     /// The nation's wiki URL.
     pub wiki: Option<String>,
     /// The nation's leader (mayor of the capital town).
-    pub king: NamedId,
+    #[serde(rename = "king")]
+    pub leader: NamedId,
     /// The nation's capital town.
     pub capital: NamedId,
     pub timestamps: NationTimestamps,

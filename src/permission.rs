@@ -10,14 +10,33 @@ use std::fmt::{self, Formatter};
 
 /// Permission flags for each type of player in a given [`Town`].
 #[derive(Debug, PartialEq)]
-pub struct TownyPermission {
+pub struct TownyPermissionSet {
     pub resident: bool,
     pub nation: bool,
     pub ally: bool,
     pub outsider: bool,
 }
 
-impl Serialize for TownyPermission {
+#[derive(Deserialize, Serialize, PartialEq, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct TownyPermissions {
+    pub build: TownyPermissionSet,
+    pub destroy: TownyPermissionSet,
+    pub switch: TownyPermissionSet,
+    pub item_use: TownyPermissionSet,
+    pub flags: TownyPermissionFlags,
+}
+
+#[derive(Deserialize, Serialize, PartialEq, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct TownyPermissionFlags {
+    pub pvp: bool,
+    pub explosion: bool,
+    pub fire: bool,
+    pub mobs: bool,
+}
+
+impl Serialize for TownyPermissionSet {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -31,15 +50,15 @@ impl Serialize for TownyPermission {
     }
 }
 
-impl<'de> Deserialize<'de> for TownyPermission {
-    fn deserialize<D>(deserializer: D) -> Result<TownyPermission, D::Error>
+impl<'de> Deserialize<'de> for TownyPermissionSet {
+    fn deserialize<D>(deserializer: D) -> Result<TownyPermissionSet, D::Error>
     where
         D: Deserializer<'de>,
     {
         struct PermVisitor;
 
         impl<'de> Visitor<'de> for PermVisitor {
-            type Value = TownyPermission;
+            type Value = TownyPermissionSet;
 
             fn expecting(&self, formatter: &mut Formatter) -> fmt::Result {
                 formatter.write_str("an array of exactly four booleans")
@@ -48,7 +67,7 @@ impl<'de> Deserialize<'de> for TownyPermission {
             fn visit_seq<A>(
                 self,
                 mut seq: A,
-            ) -> Result<TownyPermission, A::Error>
+            ) -> Result<TownyPermissionSet, A::Error>
             where
                 A: SeqAccess<'de>,
             {
@@ -76,7 +95,7 @@ impl<'de> Deserialize<'de> for TownyPermission {
                     ));
                 }
 
-                Ok(TownyPermission {
+                Ok(TownyPermissionSet {
                     resident,
                     nation,
                     ally,

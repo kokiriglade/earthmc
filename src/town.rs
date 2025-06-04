@@ -9,8 +9,8 @@ use uuid::Uuid;
 use crate::{
     chunk_position::ChunkPosition,
     location::Location,
-    permission::TownyPermission,
     named_id::{NamedId, NamedIdOpt},
+    permission::TownyPermissions,
 };
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
@@ -33,7 +33,7 @@ pub struct Town {
     pub timestamps: TownTimestamps,
     pub status: TownStatus,
     pub stats: TownStats,
-    pub perms: TownPermissions,
+    pub perms: TownyPermissions,
     pub coordinates: TownCoordinates,
     /// A list of all of the residents of the town.
     pub residents: Vec<NamedId>,
@@ -100,25 +100,6 @@ pub struct TownStats {
     pub balance: f64,
     /// The price the town is for sale at if it is for sale.
     pub for_sale_price: Option<f64>,
-}
-
-#[derive(Deserialize, Serialize, PartialEq, Debug)]
-#[serde(rename_all = "camelCase")]
-pub struct TownPermissions {
-    pub build: TownyPermission,
-    pub destroy: TownyPermission,
-    pub switch: TownyPermission,
-    pub item_use: TownyPermission,
-    pub flags: TownPermissionFlags,
-}
-
-#[derive(Deserialize, Serialize, PartialEq, Debug)]
-#[serde(rename_all = "camelCase")]
-pub struct TownPermissionFlags {
-    pub pvp: bool,
-    pub explosion: bool,
-    pub fire: bool,
-    pub mobs: bool,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]

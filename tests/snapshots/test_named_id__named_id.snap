@@ -1,5 +1,5 @@
 ---
-source: tests/test_shared.rs
+source: tests/test_named_id.rs
 expression: parsed
 ---
 NamedIdGeneric {

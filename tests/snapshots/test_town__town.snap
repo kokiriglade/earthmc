@@ -49,32 +49,32 @@ expression: parsed
             balance: 51.0,
             for_sale_price: None,
         },
-        perms: TownPermissions {
-            build: TownyPermission {
+        perms: TownyPermissions {
+            build: TownyPermissionSet {
                 resident: false,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
-            destroy: TownyPermission {
+            destroy: TownyPermissionSet {
                 resident: false,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
-            switch: TownyPermission {
+            switch: TownyPermissionSet {
                 resident: false,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
-            item_use: TownyPermission {
+            item_use: TownyPermissionSet {
                 resident: false,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
-            flags: TownPermissionFlags {
+            flags: TownyPermissionFlags {
                 pvp: false,
                 explosion: false,
                 fire: false,
@@ -82,7 +82,7 @@ expression: parsed
             },
         },
         coordinates: TownCoordinates {
-            spawn: WorldPosition {
+            spawn: Location {
                 world: "earth",
                 x: -25227.148,
                 y: 86.0,

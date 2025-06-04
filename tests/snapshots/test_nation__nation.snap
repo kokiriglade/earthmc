@@ -12,7 +12,7 @@ expression: parsed
         dynmap_colour: "FFA500",
         dynmap_outline: "FFFF00",
         wiki: None,
-        king: NamedIdGeneric {
+        leader: NamedIdGeneric {
             name: "tuzzzie",
             uuid: 8391474f-4b57-412a-a835-96bd2c253219,
         },
@@ -37,7 +37,7 @@ expression: parsed
             balance: 1790.0,
         },
         coordinates: NationCoordinates {
-            spawn: WorldPosition {
+            spawn: Location {
                 world: "earth",
                 x: -24932.5,
                 y: 99.1875,
