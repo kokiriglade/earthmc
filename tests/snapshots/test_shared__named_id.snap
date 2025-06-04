@@ -2,7 +2,7 @@
 source: tests/test_shared.rs
 expression: parsed
 ---
-NamedId {
+NamedIdGeneric {
     name: "kokiriglade",
     uuid: 89c29c53-ef0c-4623-92cb-0f79930a97c2,
 }
