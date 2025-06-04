@@ -1,3 +1,4 @@
+pub mod block_position;
 pub mod chunk_position;
 pub mod location;
 pub mod named_id;
