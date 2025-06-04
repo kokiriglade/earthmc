@@ -37,7 +37,7 @@ expression: parsed
             balance: 1790.0,
         },
         coordinates: NationCoordinates {
-            spawn: Location {
+            spawn: WorldLocation {
                 world: "earth",
                 x: -24932.5,
                 y: 99.1875,

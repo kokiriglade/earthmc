@@ -4,7 +4,7 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
-pub struct Location {
+pub struct WorldLocation {
     pub world: String,
     pub x: f32,
     pub y: f32,

@@ -8,9 +8,9 @@ use uuid::Uuid;
 
 use crate::{
     chunk_position::ChunkPosition,
-    location::Location,
     named_id::{NamedId, NamedIdOpt},
     permission::TownyPermissions,
+    world_location::WorldLocation,
 };
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
@@ -106,7 +106,7 @@ pub struct TownStats {
 #[serde(rename_all = "camelCase")]
 pub struct TownCoordinates {
     /// The locatioin of the town's spawn point.
-    pub spawn: Location,
+    pub spawn: WorldLocation,
     pub home_block: ChunkPosition,
     pub town_blocks: Vec<ChunkPosition>,
 }
