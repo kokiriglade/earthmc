@@ -1,0 +1,46 @@
+[
+    {
+        "uuid": "5fb3b17a-c67e-476e-b8ad-f030955ef8ea",
+        "type": "APARTMENT",
+        "owner": {
+            "name": "Mcplayer21",
+            "uuid": "57bcd815-d93a-4e4a-904f-d01b3459ce17"
+        },
+        "town": {
+            "name": "Washington_DC",
+            "uuid": "065caae9-5b75-4f2e-aabe-826a209e8247"
+        },
+        "timestamps": {
+            "registered": 1697904112328,
+            "claimedAt": 1710726377127
+        },
+        "status": {
+            "isEmbassy": true
+        },
+        "stats": {
+            "price": null,
+            "volume": 1890,
+            "numCuboids": 1
+        },
+        "colour": [
+            64,
+            194,
+            121
+        ],
+        "trusted": [],
+        "cuboids": [
+            {
+                "pos1": [
+                    -18395,
+                    93,
+                    -8215
+                ],
+                "pos2": [
+                    -18381,
+                    88,
+                    -8235
+                ]
+            }
+        ]
+    }
+]

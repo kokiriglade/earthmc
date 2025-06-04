@@ -5,6 +5,7 @@ pub mod named_id;
 pub mod nation;
 pub mod permission;
 pub mod player;
+pub mod quarter;
 pub mod retry_strategy;
 pub mod server;
 pub mod simple_position;
