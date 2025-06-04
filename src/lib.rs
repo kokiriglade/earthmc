@@ -1,5 +1,6 @@
 pub mod block_position;
 pub mod chunk_position;
+pub mod discord_link;
 pub mod location;
 pub mod named_id;
 pub mod nation;
