@@ -1,0 +1,29 @@
+[{
+    "location": {
+        "x": 0,
+        "z": 0
+    },
+    "isWilderness": false,
+    "town": {
+        "name": "Sanctuary",
+        "uuid": "8dd45769-a6da-4035-a540-bb5d4a7184b8"
+    },
+    "nation": {
+        "name": null,
+        "uuid": null
+    }
+}, {
+    "location": {
+        "x": 100,
+        "z": 100
+    },
+    "isWilderness": true,
+    "town": {
+        "name": null,
+        "uuid": null
+    },
+    "nation": {
+        "name": null,
+        "uuid": null
+    }
+}]
