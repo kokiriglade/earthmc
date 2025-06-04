@@ -6,7 +6,7 @@ use std::collections::BTreeMap;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use crate::shared::{NamedId, WorldPosition};
+use crate::{location::Location, named_id::NamedId};
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
@@ -84,7 +84,7 @@ pub struct NationStats {
 #[serde(rename_all = "camelCase")]
 pub struct NationCoordinates {
     /// The location of the nation's spawn.
-    pub spawn: WorldPosition,
+    pub spawn: Location,
 }
 
 #[derive(

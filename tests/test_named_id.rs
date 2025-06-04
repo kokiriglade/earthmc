@@ -1,4 +1,4 @@
-use earthmc::shared::NamedId;
+use earthmc::named_id::NamedId;
 
 #[test]
 fn test_named_id() {

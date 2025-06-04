@@ -7,8 +7,10 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::{
+    chunk_position::ChunkPosition,
+    location::Location,
     permission::TownyPermission,
-    shared::{ChunkPosition, NamedId, NamedIdOpt, WorldPosition},
+    named_id::{NamedId, NamedIdOpt},
 };
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
@@ -123,7 +125,7 @@ pub struct TownPermissionFlags {
 #[serde(rename_all = "camelCase")]
 pub struct TownCoordinates {
     /// The locatioin of the town's spawn point.
-    pub spawn: WorldPosition,
+    pub spawn: Location,
     pub home_block: ChunkPosition,
     pub town_blocks: Vec<ChunkPosition>,
 }
