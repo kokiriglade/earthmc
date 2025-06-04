@@ -7,7 +7,7 @@ use typed_builder::TypedBuilder;
 
 use rand::{Rng, SeedableRng, rngs::StdRng};
 
-/// Trait to define a retry strategy
+/// Trait to define a retry strategy.
 pub trait RetryStrategy: Send + Sync {
     /// This function is called every time a request to the EarthMC API fails
     /// to determine if a retry attempt should be made and how much time to wait
@@ -34,7 +34,7 @@ pub trait RetryStrategy: Send + Sync {
     /// }
     /// ```
     ///
-    /// Or a strategy to never retry
+    /// Or a strategy to never retry:
     ///
     /// ```rust
     /// use earthmc::retry_strategy::RetryStrategy;

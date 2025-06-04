@@ -1,3 +1,6 @@
+//! # Permission
+//!
+//! Defines the [`TownyPermission`] struct.
 use serde::{
     Deserialize, Deserializer, Serialize, Serializer,
     de::{self, IgnoredAny, SeqAccess, Visitor},
