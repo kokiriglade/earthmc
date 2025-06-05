@@ -1,6 +1,6 @@
-//! # Location
+//! # World Location
 //!
-//! Defines the [`Location`] struct.
+//! Defines the [`WorldLocation`] struct.
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, PartialEq)]

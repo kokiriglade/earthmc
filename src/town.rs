@@ -41,10 +41,10 @@ pub struct Town {
     pub trusted: Vec<NamedId>,
     /// A list of all of the outlawed people of the town.
     pub outlaws: Vec<NamedId>,
-    /// The [`Uuid`] of every Quarter in the town.
-    pub quarters: Vec<Uuid>,
+    /// A list of every Quarter in the town.
+    pub quarters: Vec<NamedId>,
     /// Lists of everyone in every rank in the town.
-    pub ranks: BTreeMap<TownRankKind, Vec<String>>,
+    pub ranks: BTreeMap<TownRankKind, Vec<NamedId>>,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]

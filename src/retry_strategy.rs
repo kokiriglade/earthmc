@@ -1,9 +1,9 @@
 //! # Retry strategy
 //!
 //! The default retry strategy and how to write your own retry logic.
+use derive_builder::Builder;
 use parking_lot::Mutex;
-use std::time::Duration;
-use typed_builder::TypedBuilder;
+use std::{sync::Arc, time::Duration};
 
 use rand::{Rng, SeedableRng, rngs::StdRng};
 
@@ -65,14 +65,15 @@ pub trait RetryStrategy: Send + Sync {
 /// ```
 ///
 /// Where `random_jitter` is a random number between `0` and `999`.
-#[derive(TypedBuilder)]
+#[derive(Builder)]
+#[builder(pattern = "owned", setter(into))]
 pub struct JitteredBackoff {
     /// The maximum number of retries before giving up.
     #[builder(default = 5)]
     max_retry: usize,
     /// The random number generator to use.
-    #[builder(default = Mutex::new(StdRng::from_os_rng()))]
-    rng: Mutex<StdRng>,
+    #[builder(default = Arc::new(Mutex::new(StdRng::from_os_rng())))]
+    rng: Arc<Mutex<StdRng>>,
 }
 
 impl RetryStrategy for JitteredBackoff {
@@ -99,6 +100,8 @@ impl RetryStrategy for JitteredBackoff {
 /// retries (5).
 impl Default for JitteredBackoff {
     fn default() -> Self {
-        JitteredBackoff::builder().build()
+        JitteredBackoffBuilder::default()
+            .build()
+            .expect("Builder defaults are valid")
     }
 }
