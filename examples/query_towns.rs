@@ -1,4 +1,4 @@
-use earthmc::{ClientBuilder, query::TownQueryBuilder};
+use earthmc::{ClientBuilder, query::SimpleQueryBuilder};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -6,13 +6,17 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .build()
         .expect("Builder defaults are valid");
 
-    let query = TownQueryBuilder::default()
-        .town("London".into())
-        .town(String::from("Berlin").into())
+    let query = SimpleQueryBuilder::default()
+        .add("London")
+        .add("Berlin")
+        .add("THIS_TOWN_PROBABLY_DOES_NOT_EXIST")
         .build()
         .expect("Builder is valid");
 
     let towns = client.query_towns(query).await?;
+
+    // non-existent towns are simply omitted
+    assert_eq!(towns.len(), 2);
 
     for town in &towns {
         println!(

@@ -18,7 +18,9 @@ use derive_builder::Builder;
 use crate::{
     errors::{Error, snippet_around},
     named_id::NamedId,
-    query::{Query, TownQuery},
+    nation::Nation,
+    player::Player,
+    query::{Query, SimpleQuery},
     retry_strategy::{JitteredBackoff, RetryStrategy},
     town::Town,
     world::World,
@@ -188,17 +190,58 @@ impl Client {
         }
     }
 
+    const TOWNS_PATH: &str = "towns";
+    const NATIONS_PATH: &str = "nations";
+    const PLAYERS_PATH: &str = "players";
+
     /// Fetches all currently registered Towny towns.
     pub async fn get_all_towns(&self) -> Result<Vec<NamedId>, Error> {
-        self.get::<Vec<NamedId>>("towns").await
+        self.get::<Vec<NamedId>>(Self::TOWNS_PATH).await
     }
 
     /// Queries detailed information on specific towns.
     pub async fn query_towns(
         &self,
-        query: TownQuery,
+        query: SimpleQuery,
     ) -> Result<Vec<Town>, Error> {
-        self.post::<Vec<Town>, Query<TownQuery>>("towns", Query::from(query))
-            .await
+        self.post::<Vec<Town>, Query<SimpleQuery>>(
+            Self::TOWNS_PATH,
+            Query::from(query),
+        )
+        .await
+    }
+
+    /// Fetches all currently registered Towny nations.
+    pub async fn get_all_nations(&self) -> Result<Vec<NamedId>, Error> {
+        self.get::<Vec<NamedId>>(Self::NATIONS_PATH).await
+    }
+
+    /// Queries detailed information on specific nations.
+    pub async fn query_nations(
+        &self,
+        query: SimpleQuery,
+    ) -> Result<Vec<Nation>, Error> {
+        self.post::<Vec<Nation>, Query<SimpleQuery>>(
+            Self::NATIONS_PATH,
+            Query::from(query),
+        )
+        .await
+    }
+
+    /// Fetches all currently registered Towny residents.
+    pub async fn get_all_players(&self) -> Result<Vec<NamedId>, Error> {
+        self.get::<Vec<NamedId>>(Self::PLAYERS_PATH).await
+    }
+
+    /// Queries detailed information on specific players.
+    pub async fn query_players(
+        &self,
+        query: SimpleQuery,
+    ) -> Result<Vec<Player>, Error> {
+        self.post::<Vec<Player>, Query<SimpleQuery>>(
+            Self::PLAYERS_PATH,
+            Query::from(query),
+        )
+        .await
     }
 }

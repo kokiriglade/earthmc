@@ -4,45 +4,45 @@ expression: parsed
 ---
 [
     Player {
-        name: "Fruitloopins",
-        uuid: fed0ec4a-f1ad-4b97-9443-876391668b34,
+        name: "Fix",
+        uuid: 7395d056-536a-4cf3-9c96-6c7a7df6897a,
         title: Some(
-            "<rainbow>King",
+            "Server Owner",
         ),
         surname: Some(
-            "of Yukon",
+            "Founder of EMC",
         ),
-        formatted_name: "<rainbow>King Fruitloopins of Yukon",
+        formatted_name: "Server Owner Fix Founder of EMC",
         about: Some(
-            "CEO of this feature",
+            "/res set about [msg]",
         ),
         town: NamedIdGeneric {
             name: Some(
-                "Teslin",
+                "Fixingtown",
             ),
             uuid: Some(
-                969d4960-f082-4be0-9e32-f14ed0b7cd50,
+                f40c06ad-f75e-421e-b56b-e4a197df9ce6,
             ),
         },
         nation: NamedIdGeneric {
             name: Some(
-                "Yukon",
+                "Indochina",
             ),
             uuid: Some(
-                3ce63924-44f9-404a-93e0-2fe87a22edd9,
+                73ec3e77-05a6-401b-b226-c100dab8de57,
             ),
         },
         timestamps: PlayerTimestamps {
-            registered: 1651299304371,
+            registered: 1641749298700,
             joined_town_at: Some(
-                1701704799323,
+                1737590199890,
             ),
             last_online: Some(
-                1711116371655,
+                1748118485229,
             ),
         },
         status: PlayerStatus {
-            is_online: true,
+            is_online: false,
             is_npc: false,
             is_mayor: false,
             is_king: false,
@@ -50,30 +50,30 @@ expression: parsed
             has_nation: true,
         },
         stats: PlayerStats {
-            balance: 2838.0,
-            num_friends: 1,
+            balance: 20.0,
+            num_friends: 0,
         },
         perms: TownyPermissions {
             build: TownyPermissionSet {
-                resident: false,
+                resident: true,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
             destroy: TownyPermissionSet {
-                resident: false,
+                resident: true,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
             switch: TownyPermissionSet {
-                resident: false,
+                resident: true,
                 nation: false,
                 ally: false,
                 outsider: false,
             },
             item_use: TownyPermissionSet {
-                resident: false,
+                resident: true,
                 nation: false,
                 ally: false,
                 outsider: false,
@@ -93,10 +93,104 @@ expression: parsed
                 Chancellor,
             ],
         },
+        friends: [],
+    },
+    Player {
+        name: "CorruptedGreed",
+        uuid: f17d77ab-aed4-44e7-96ef-ec9cd473eda3,
+        title: Some(
+            "<#A020F0>Doge",
+        ),
+        surname: Some(
+            "di Eterno",
+        ),
+        formatted_name: "§x§A§0§2§0§F§0Doge CorruptedGreed di Eterno",
+        about: Some(
+            "e",
+        ),
+        town: NamedIdGeneric {
+            name: Some(
+                "Venice",
+            ),
+            uuid: Some(
+                83c9eb49-40e8-4588-98d3-e2c25b174694,
+            ),
+        },
+        nation: NamedIdGeneric {
+            name: Some(
+                "Venice",
+            ),
+            uuid: Some(
+                5341d292-28bb-4c8e-a404-0076cfa2f478,
+            ),
+        },
+        timestamps: PlayerTimestamps {
+            registered: 1651420823876,
+            joined_town_at: Some(
+                1655516854439,
+            ),
+            last_online: Some(
+                1749097593615,
+            ),
+        },
+        status: PlayerStatus {
+            is_online: false,
+            is_npc: false,
+            is_mayor: true,
+            is_king: true,
+            has_town: true,
+            has_nation: true,
+        },
+        stats: PlayerStats {
+            balance: 9053.0,
+            num_friends: 1,
+        },
+        perms: TownyPermissions {
+            build: TownyPermissionSet {
+                resident: true,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            destroy: TownyPermissionSet {
+                resident: true,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            switch: TownyPermissionSet {
+                resident: true,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            item_use: TownyPermissionSet {
+                resident: true,
+                nation: false,
+                ally: false,
+                outsider: false,
+            },
+            flags: TownyPermissionFlags {
+                pvp: false,
+                explosion: false,
+                fire: false,
+                mobs: false,
+            },
+        },
+        ranks: PlayerRanks {
+            town_ranks: [
+                Recruiter,
+                Builder,
+                Councillor,
+            ],
+            nation_ranks: [
+                Chancellor,
+            ],
+        },
         friends: [
             NamedIdGeneric {
-                name: "tuzzzie",
-                uuid: 8391474f-4b57-412a-a835-96bd2c253219,
+                name: "32World",
+                uuid: 4363c713-b7cd-4945-b66f-86d2cdb5c284,
             },
         ],
     },

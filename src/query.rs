@@ -19,8 +19,8 @@ impl<D: Serialize + Sized> From<D> for Query<D> {
     }
 }
 
-/// An enum that can hold either a `String` or a `Uuid`.
-#[derive(Serialize)]
+/// An enum that can hold either a `String` or a [`Uuid`].
+#[derive(Serialize, Clone)]
 #[serde(untagged)]
 pub enum StrOrUuid {
     Str(String),
@@ -45,10 +45,18 @@ impl From<Uuid> for StrOrUuid {
     }
 }
 
+/// An API query that looks up by either UUIDs or names.
 #[derive(Serialize, Builder)]
 #[serde(transparent)]
-#[builder(pattern = "owned", setter(into))]
-pub struct TownQuery {
-    #[builder(default, setter(each = "town"))]
-    towns: Vec<StrOrUuid>,
+#[builder(pattern = "owned")]
+pub struct SimpleQuery {
+    #[builder(default)]
+    values: Vec<StrOrUuid>,
+}
+
+impl SimpleQueryBuilder {
+    pub fn add<T: Into<StrOrUuid>>(mut self, single: T) -> Self {
+        self.values.get_or_insert_with(Vec::new).push(single.into());
+        self
+    }
 }

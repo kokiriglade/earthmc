@@ -43,7 +43,7 @@ pub struct Nation {
     pub enemies: Vec<NamedId>,
     /// A list of all sanctioned towns of the nation.
     pub sanctioned: Vec<NamedId>,
-    pub ranks: BTreeMap<NationRankKind, Vec<String>>,
+    pub ranks: BTreeMap<NationRankKind, Vec<NamedId>>,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
