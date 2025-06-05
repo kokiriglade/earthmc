@@ -82,7 +82,7 @@ expression: parsed
             },
         },
         coordinates: TownCoordinates {
-            spawn: Location {
+            spawn: WorldLocation {
                 world: "earth",
                 x: -25227.148,
                 y: 86.0,

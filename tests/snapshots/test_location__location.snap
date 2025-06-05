@@ -1,0 +1,40 @@
+---
+source: tests/test_location.rs
+expression: parsed
+---
+[
+    LocationInfo {
+        location: PositionXZ {
+            x: 0.0,
+            z: 0.0,
+        },
+        is_wilderness: false,
+        town: NamedIdGeneric {
+            name: Some(
+                "Sanctuary",
+            ),
+            uuid: Some(
+                8dd45769-a6da-4035-a540-bb5d4a7184b8,
+            ),
+        },
+        nation: NamedIdGeneric {
+            name: None,
+            uuid: None,
+        },
+    },
+    LocationInfo {
+        location: PositionXZ {
+            x: 100.0,
+            z: 100.0,
+        },
+        is_wilderness: true,
+        town: NamedIdGeneric {
+            name: None,
+            uuid: None,
+        },
+        nation: NamedIdGeneric {
+            name: None,
+            uuid: None,
+        },
+    },
+]
