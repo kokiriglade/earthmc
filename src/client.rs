@@ -20,7 +20,7 @@ use crate::{
     named_id::NamedId,
     nation::Nation,
     player::Player,
-    query::{Query, SimpleQuery},
+    query::{NearbyQuery, Query, SimpleQuery},
     retry_strategy::{JitteredBackoff, RetryStrategy},
     town::Town,
     world::World,
@@ -120,7 +120,7 @@ impl Client {
 
     /// Perform a POST request with JSON body `B` and deserializes the response into
     /// `T`.
-    pub async fn post<T, B>(&self, path: &str, body: B) -> Result<T, Error>
+    async fn post<T, B>(&self, path: &str, body: B) -> Result<T, Error>
     where
         T: DeserializeOwned,
         B: Serialize + Sized,
@@ -193,17 +193,15 @@ impl Client {
     const TOWNS_PATH: &str = "towns";
     const NATIONS_PATH: &str = "nations";
     const PLAYERS_PATH: &str = "players";
+    const NEARBY_PATH: &str = "nearby";
 
     /// Fetches all currently registered Towny towns.
-    pub async fn get_all_towns(&self) -> Result<Vec<NamedId>, Error> {
+    pub async fn all_towns(&self) -> Result<Vec<NamedId>, Error> {
         self.get::<Vec<NamedId>>(Self::TOWNS_PATH).await
     }
 
     /// Queries detailed information on specific towns.
-    pub async fn query_towns(
-        &self,
-        query: SimpleQuery,
-    ) -> Result<Vec<Town>, Error> {
+    pub async fn towns(&self, query: SimpleQuery) -> Result<Vec<Town>, Error> {
         self.post::<Vec<Town>, Query<SimpleQuery>>(
             Self::TOWNS_PATH,
             Query::from(query),
@@ -212,12 +210,12 @@ impl Client {
     }
 
     /// Fetches all currently registered Towny nations.
-    pub async fn get_all_nations(&self) -> Result<Vec<NamedId>, Error> {
+    pub async fn all_nations(&self) -> Result<Vec<NamedId>, Error> {
         self.get::<Vec<NamedId>>(Self::NATIONS_PATH).await
     }
 
     /// Queries detailed information on specific nations.
-    pub async fn query_nations(
+    pub async fn nations(
         &self,
         query: SimpleQuery,
     ) -> Result<Vec<Nation>, Error> {
@@ -229,17 +227,30 @@ impl Client {
     }
 
     /// Fetches all currently registered Towny residents.
-    pub async fn get_all_players(&self) -> Result<Vec<NamedId>, Error> {
+    pub async fn all_players(&self) -> Result<Vec<NamedId>, Error> {
         self.get::<Vec<NamedId>>(Self::PLAYERS_PATH).await
     }
 
     /// Queries detailed information on specific players.
-    pub async fn query_players(
+    pub async fn players(
         &self,
         query: SimpleQuery,
     ) -> Result<Vec<Player>, Error> {
         self.post::<Vec<Player>, Query<SimpleQuery>>(
             Self::PLAYERS_PATH,
+            Query::from(query),
+        )
+        .await
+    }
+
+    /// Queries all the elements of search type in a given radius of a target
+    /// location of the target type.
+    pub async fn nearby(
+        &self,
+        query: NearbyQuery,
+    ) -> Result<Vec<Vec<NamedId>>, Error> {
+        self.post::<Vec<Vec<NamedId>>, Query<NearbyQuery>>(
+            Self::NEARBY_PATH,
             Query::from(query),
         )
         .await

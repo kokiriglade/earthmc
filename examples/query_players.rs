@@ -2,18 +2,15 @@ use earthmc::{ClientBuilder, query::SimpleQueryBuilder};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default()
-        .build()
-        .expect("Builder defaults are valid");
+    let client = ClientBuilder::default().build()?;
 
     let query = SimpleQueryBuilder::default()
         .add("Fix")
         .add("CorruptedGreed")
         .add("THIS_PLAYER_DEFINITELY_DOES_NOT_EXIST")
-        .build()
-        .expect("Builder is valid");
+        .build()?;
 
-    let players = client.query_players(query).await?;
+    let players = client.players(query).await?;
 
     // non-existent players are simply omitted
     // NOTE: this assertion might not work if either Fix or CorruptedGreed stop

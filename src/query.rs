@@ -60,3 +60,40 @@ impl SimpleQueryBuilder {
         self
     }
 }
+
+#[derive(Serialize, Builder)]
+#[serde(transparent)]
+#[builder(pattern = "owned")]
+pub struct NearbyQuery {
+    #[builder(default, setter(each = "add"))]
+    values: Vec<NearbyQueryItem>,
+}
+
+#[derive(Debug, Serialize, Builder)]
+#[builder(pattern = "owned")]
+pub struct NearbyQueryItem {
+    pub target_type: NearbyTargetType,
+    pub target: NearbyTarget,
+    pub search_type: NearbySearchType,
+    pub radius: i32,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum NearbyTargetType {
+    Town,
+    Coordinate,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum NearbySearchType {
+    Town,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(untagged)]
+pub enum NearbyTarget {
+    Town(String),
+    Coordinates([i32; 2]),
+}
