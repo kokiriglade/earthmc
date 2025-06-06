@@ -2,7 +2,6 @@
 name = "earthmc"
 version = "1.0.0"
 edition = "2024"
-rust-version = "1.87"
 
 [dependencies]
 derive_builder = "0.20"
