@@ -8,7 +8,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::default();
 
     let query = UuidQueryBuilder::default()
-        .add(Uuid::from_str("971c5315-12c2-4c15-a8c3-d65121fa4e07")?)
+        .insert(Uuid::from_str("971c5315-12c2-4c15-a8c3-d65121fa4e07")?)
         .build()?;
 
     // note that if the Quarter with that UUID stops existing, this example will

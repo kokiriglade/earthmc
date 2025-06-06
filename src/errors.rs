@@ -47,11 +47,11 @@ pub fn snippet_around(
 
     let mut result = String::new();
     if start > 0 {
-        result.push_str("…");
+        result.push('…');
     }
     result.push_str(&full[start..end]);
     if end < full.len() {
-        result.push_str("…");
+        result.push('…');
     }
     result
 }

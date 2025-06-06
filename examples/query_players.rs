@@ -5,9 +5,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::default();
 
     let query = SimpleQueryBuilder::default()
-        .add("Fix")
-        .add("CorruptedGreed")
-        .add("THIS_PLAYER_DEFINITELY_DOES_NOT_EXIST")
+        .insert("Fix")
+        .insert("CorruptedGreed")
+        .insert("THIS_PLAYER_DEFINITELY_DOES_NOT_EXIST")
         .build()?;
 
     let players = client.players(query).await?;

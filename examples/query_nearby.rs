@@ -11,7 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::default();
 
     let query = NearbyQueryBuilder::default()
-        .add(
+        .insert(
             NearbyQueryItemBuilder::default()
                 .target_type(NearbyTargetType::Town)
                 .target(NearbyTarget::Town("Berlin".to_string()))
@@ -19,7 +19,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 .radius(500)
                 .build()?,
         )
-        .add(
+        .insert(
             NearbyQueryItemBuilder::default()
                 .target_type(NearbyTargetType::Coordinate)
                 .target(NearbyTarget::Coordinates([0, 0]))

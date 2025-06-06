@@ -5,9 +5,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::default();
 
     let query = SimpleQueryBuilder::default()
-        .add("London")
-        .add("Berlin")
-        .add("THIS_TOWN_PROBABLY_DOES_NOT_EXIST")
+        .insert("London")
+        .insert("Berlin")
+        .insert("THIS_TOWN_PROBABLY_DOES_NOT_EXIST")
         .build()?;
 
     let towns = client.towns(query).await?;

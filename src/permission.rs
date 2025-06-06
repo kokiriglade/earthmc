@@ -88,7 +88,7 @@ impl<'de> Deserialize<'de> for TownyPermissionSet {
 
                 // if there are extra elements beyond the fourth, that’s also
                 // an error
-                if let Some(_) = seq.next_element::<IgnoredAny>()? {
+                if (seq.next_element::<IgnoredAny>()?).is_some() {
                     return Err(de::Error::invalid_length(
                         5,
                         &"expected exactly four booleans",

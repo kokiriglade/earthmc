@@ -103,31 +103,31 @@ impl Client {
                         }
                         Err(e) => {
                             let err: Error = e.into();
-                            let mut strat = self.retry_strategy.lock();
-
-                            if let Some(delay) =
+                            let delay_opt = {
+                                let mut strat = self.retry_strategy.lock();
                                 strat.should_retry_after(num_retries)
-                            {
+                            };
+                            if let Some(delay) = delay_opt {
                                 tokio::time::sleep(delay).await;
                                 num_retries += 1;
                                 continue;
-                            } else {
-                                return Err(err);
                             }
+                            return Err(err);
                         }
                     }
                 }
                 Err(e) => {
                     let err: Error = e.into();
-                    let mut strat = self.retry_strategy.lock();
-
-                    if let Some(delay) = strat.should_retry_after(num_retries) {
+                    let delay_opt = {
+                        let mut strat = self.retry_strategy.lock();
+                        strat.should_retry_after(num_retries)
+                    };
+                    if let Some(delay) = delay_opt {
                         tokio::time::sleep(delay).await;
                         num_retries += 1;
                         continue;
-                    } else {
-                        return Err(err);
                     }
+                    return Err(err);
                 }
             }
         }
@@ -180,10 +180,11 @@ impl Client {
                     }
                     Err(e) => {
                         let err: Error = e.into();
-                        let mut strat = self.retry_strategy.lock();
-                        if let Some(delay) =
+                        let delay_opt = {
+                            let mut strat = self.retry_strategy.lock();
                             strat.should_retry_after(num_retries)
-                        {
+                        };
+                        if let Some(delay) = delay_opt {
                             tokio::time::sleep(delay).await;
                             num_retries += 1;
                             continue;
@@ -193,8 +194,11 @@ impl Client {
                 },
                 Err(e) => {
                     let err: Error = e.into();
-                    let mut strat = self.retry_strategy.lock();
-                    if let Some(delay) = strat.should_retry_after(num_retries) {
+                    let delay_opt = {
+                        let mut strat = self.retry_strategy.lock();
+                        strat.should_retry_after(num_retries)
+                    };
+                    if let Some(delay) = delay_opt {
                         tokio::time::sleep(delay).await;
                         num_retries += 1;
                         continue;

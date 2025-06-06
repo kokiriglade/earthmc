@@ -11,10 +11,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let client = Client::default();
 
     let query = DiscordQueryBuilder::default()
-        .add(DiscordQueryItem::Minecraft {
+        .insert(DiscordQueryItem::Minecraft {
             target: Uuid::from_str("f17d77ab-aed4-44e7-96ef-ec9cd473eda3")?,
         })
-        .add(DiscordQueryItem::Discord {
+        .insert(DiscordQueryItem::Discord {
             target: "160374716928884736".into(),
         })
         .build()?;

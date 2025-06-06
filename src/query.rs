@@ -55,7 +55,7 @@ pub struct SimpleQuery {
 }
 
 impl SimpleQueryBuilder {
-    pub fn add<T: Into<StrOrUuid>>(mut self, single: T) -> Self {
+    pub fn insert<T: Into<StrOrUuid>>(mut self, single: T) -> Self {
         self.values.get_or_insert_with(Vec::new).push(single.into());
         self
     }
@@ -65,7 +65,7 @@ impl SimpleQueryBuilder {
 #[serde(transparent)]
 #[builder(pattern = "owned")]
 pub struct NearbyQuery {
-    #[builder(default, setter(each = "add"))]
+    #[builder(default, setter(each = "insert"))]
     values: Vec<NearbyQueryItem>,
 }
 
@@ -102,7 +102,7 @@ pub enum NearbyTarget {
 #[serde(transparent)]
 #[builder(pattern = "owned")]
 pub struct UuidQuery {
-    #[builder(default, setter(each = "add"))]
+    #[builder(default, setter(each = "insert"))]
     values: Vec<Uuid>,
 }
 
@@ -110,7 +110,7 @@ pub struct UuidQuery {
 #[serde(transparent)]
 #[builder(pattern = "owned")]
 pub struct DiscordQuery {
-    #[builder(default, setter(each = "add"))]
+    #[builder(default, setter(each = "insert"))]
     values: Vec<DiscordQueryItem>,
 }
 
@@ -125,6 +125,6 @@ pub enum DiscordQueryItem {
 #[serde(transparent)]
 #[builder(pattern = "owned")]
 pub struct LocationQuery {
-    #[builder(default, setter(each = "add"))]
+    #[builder(default, setter(each = "insert"))]
     values: Vec<[i32; 2]>,
 }
