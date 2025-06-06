@@ -18,6 +18,7 @@ use derive_builder::Builder;
 use crate::{
     discord_link::DiscordLink,
     errors::{Error, snippet_around},
+    mystery_master::MysteryMaster,
     named_id::NamedId,
     nation::Nation,
     player::Player,
@@ -200,6 +201,7 @@ impl Client {
     const NEARBY_PATH: &str = "nearby";
     const QUARTERS_PATH: &str = "quarters";
     const DISCORD_PATH: &str = "discord";
+    const MYSTERY_MASTER_PATH: &str = "mm";
 
     // Fetches information about the server.
     pub async fn server(&self) -> Result<Server, Error> {
@@ -294,5 +296,11 @@ impl Client {
             Query::from(query),
         )
         .await
+    }
+
+    /// Fetches the top 50 players participating in "Mystery Master".
+    pub async fn mystery_master(&self) -> Result<Vec<MysteryMaster>, Error> {
+        self.get::<Vec<MysteryMaster>>(Self::MYSTERY_MASTER_PATH)
+            .await
     }
 }
