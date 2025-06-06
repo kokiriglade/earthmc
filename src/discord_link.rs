@@ -7,7 +7,7 @@ use uuid::Uuid;
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 pub struct DiscordLink {
     /// Discord User ID.
-    id: String,
+    pub id: String,
     /// Minecraft UUID.
-    uuid: Uuid,
+    pub uuid: Uuid,
 }

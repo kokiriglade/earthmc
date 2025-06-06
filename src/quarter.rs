@@ -12,11 +12,15 @@ use crate::{
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Quarter {
+    /// The Quarter's name.
+    pub name: String,
     /// The Quarter's [`Uuid`].
     pub uuid: Uuid,
     /// The Quarter's kind, or as it is referred to in the API, its `type`.
     #[serde(rename = "type")]
     pub kind: QuarterKind,
+    /// The [`Uuid`] of the creator of the Quarter.
+    pub creator: Uuid,
     /// The Quarter's owner.
     pub owner: NamedIdOpt,
     /// The town this Quarter is inside.
@@ -24,8 +28,8 @@ pub struct Quarter {
     pub timestamps: QuarterTimestamps,
     pub status: QuarterStatus,
     pub stats: QuarterStats,
-    /// Triple of sRGB values of the Quarter.
-    pub colour: [u8; 3],
+    /// Tuple of RGBA values of the Quarter.
+    pub colour: [u8; 4],
     /// All of the trusted players in this Quarter.
     pub trusted: Vec<NamedId>,
     /// Every cuboid in this Quarter.
@@ -47,32 +51,36 @@ pub enum QuarterKind {
 #[serde(rename_all = "camelCase")]
 pub struct QuarterTimestamps {
     /// Unix timestamp representing the time the Quarter was created.
-    registered: i64,
+    pub registered: i64,
     /// Unix timestamp representing the time the Quarter was claimed.
-    claimed_at: Option<i64>,
+    pub claimed_at: Option<i64>,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct QuarterStatus {
     /// If the Quarter is an embassy.
-    is_embassy: bool,
+    pub is_embassy: bool,
+    /// If the Quarter is for sale.
+    pub is_for_sale: bool,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct QuarterStats {
     /// The Quarter's sale price.
-    price: Option<i32>,
+    pub price: Option<i32>,
     /// The total number of blocks within the Quarter's bounds.
-    volume: i32,
+    pub volume: i32,
     /// The total amount of cuboids this Quarter is made of.
-    num_cuboids: u16,
+    pub num_cuboids: u16,
+    /// The size of the particles displayed in-game.
+    pub particle_size: Option<f32>,
 }
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct QuarterCuboid {
-    pos1: BlockPosition,
-    pos2: BlockPosition,
+    pub corner_one: BlockPosition,
+    pub corner_two: BlockPosition,
 }

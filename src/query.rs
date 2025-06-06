@@ -97,3 +97,26 @@ pub enum NearbyTarget {
     Town(String),
     Coordinates([i32; 2]),
 }
+
+#[derive(Serialize, Builder)]
+#[serde(transparent)]
+#[builder(pattern = "owned")]
+pub struct UuidQuery {
+    #[builder(default, setter(each = "add"))]
+    values: Vec<Uuid>,
+}
+
+#[derive(Serialize, Builder)]
+#[serde(transparent)]
+#[builder(pattern = "owned")]
+pub struct DiscordQuery {
+    #[builder(default, setter(each = "add"))]
+    values: Vec<DiscordQueryItem>,
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "lowercase", tag = "type")]
+pub enum DiscordQueryItem {
+    Minecraft { target: Uuid },
+    Discord { target: String },
+}

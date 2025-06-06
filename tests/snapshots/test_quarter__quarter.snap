@@ -4,51 +4,56 @@ expression: parsed
 ---
 [
     Quarter {
-        uuid: 5fb3b17a-c67e-476e-b8ad-f030955ef8ea,
+        name: "PKTUI Room 2",
+        uuid: 971c5315-12c2-4c15-a8c3-d65121fa4e07,
         kind: Apartment,
+        creator: 766ef3ed-a9f9-4a57-8a75-27ca91244fe6,
         owner: NamedIdGeneric {
             name: Some(
-                "Mcplayer21",
+                "Hungry482",
             ),
             uuid: Some(
-                57bcd815-d93a-4e4a-904f-d01b3459ce17,
+                8bcbbb9e-074e-421d-9ee4-6cd13326bddc,
             ),
         },
         town: NamedIdGeneric {
-            name: "Washington_DC",
-            uuid: 065caae9-5b75-4f2e-aabe-826a209e8247,
+            name: "Dfam",
+            uuid: 4dccac1a-9b4a-4a70-90dc-5ce3744806d7,
         },
         timestamps: QuarterTimestamps {
-            registered: 1697904112328,
+            registered: 1746089983782,
             claimed_at: Some(
-                1710726377127,
+                1746090794781,
             ),
         },
         status: QuarterStatus {
-            is_embassy: true,
+            is_embassy: false,
+            is_for_sale: false,
         },
         stats: QuarterStats {
             price: None,
-            volume: 1890,
+            volume: 336,
             num_cuboids: 1,
+            particle_size: None,
         },
         colour: [
-            64,
-            194,
-            121,
+            63,
+            180,
+            255,
+            255,
         ],
         trusted: [],
         cuboids: [
             QuarterCuboid {
-                pos1: BlockPosition {
-                    x: -18395,
-                    y: 93,
-                    z: -8215,
+                corner_one: BlockPosition {
+                    x: 7597,
+                    y: 70,
+                    z: -3219,
                 },
-                pos2: BlockPosition {
-                    x: -18381,
-                    y: 88,
-                    z: -8235,
+                corner_two: BlockPosition {
+                    x: 7584,
+                    y: 67,
+                    z: -3224,
                 },
             },
         ],

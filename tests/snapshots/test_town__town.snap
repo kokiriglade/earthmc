@@ -43,6 +43,7 @@ expression: parsed
         stats: TownStats {
             num_town_blocks: 960,
             max_town_blocks: 1468,
+            bonus_blocks: 0,
             num_residents: 114,
             num_trusted: 1,
             num_outlaws: 16,
@@ -4761,6 +4762,7 @@ expression: parsed
         stats: TownStats {
             num_town_blocks: 940,
             max_town_blocks: 1016,
+            bonus_blocks: 0,
             num_residents: 78,
             num_trusted: 5,
             num_outlaws: 3,

@@ -16,12 +16,15 @@ use std::{
 use derive_builder::Builder;
 
 use crate::{
+    discord_link::DiscordLink,
     errors::{Error, snippet_around},
     named_id::NamedId,
     nation::Nation,
     player::Player,
-    query::{NearbyQuery, Query, SimpleQuery},
+    quarter::Quarter,
+    query::{DiscordQuery, NearbyQuery, Query, SimpleQuery, UuidQuery},
     retry_strategy::{JitteredBackoff, RetryStrategy},
+    server::Server,
     town::Town,
     world::World,
 };
@@ -152,7 +155,7 @@ impl Client {
                                     &text,
                                     de_err.line(),
                                     de_err.column(),
-                                    100,
+                                    10,
                                 );
                                 return Err(
                                     Error::DeserializationWithSnippet {
@@ -190,10 +193,18 @@ impl Client {
         }
     }
 
+    const SERVER_PATH: &str = ""; // empty
     const TOWNS_PATH: &str = "towns";
     const NATIONS_PATH: &str = "nations";
     const PLAYERS_PATH: &str = "players";
     const NEARBY_PATH: &str = "nearby";
+    const QUARTERS_PATH: &str = "quarters";
+    const DISCORD_PATH: &str = "discord";
+
+    // Fetches information about the server.
+    pub async fn server(&self) -> Result<Server, Error> {
+        self.get::<Server>(Self::SERVER_PATH).await
+    }
 
     /// Fetches all currently registered Towny towns.
     pub async fn all_towns(&self) -> Result<Vec<NamedId>, Error> {
@@ -251,6 +262,35 @@ impl Client {
     ) -> Result<Vec<Vec<NamedId>>, Error> {
         self.post::<Vec<Vec<NamedId>>, Query<NearbyQuery>>(
             Self::NEARBY_PATH,
+            Query::from(query),
+        )
+        .await
+    }
+
+    /// Fetches all currently registered Quarters.
+    pub async fn all_quarters(&self) -> Result<Vec<NamedId>, Error> {
+        self.get::<Vec<NamedId>>(Self::QUARTERS_PATH).await
+    }
+
+    /// Queries detailed information on specific Quarters.
+    pub async fn quarters(
+        &self,
+        query: UuidQuery,
+    ) -> Result<Vec<Quarter>, Error> {
+        self.post::<Vec<Quarter>, Query<UuidQuery>>(
+            Self::QUARTERS_PATH,
+            Query::from(query),
+        )
+        .await
+    }
+
+    /// Queries linked Discord accounts,
+    pub async fn discord(
+        &self,
+        query: DiscordQuery,
+    ) -> Result<Vec<DiscordLink>, Error> {
+        self.post::<Vec<DiscordLink>, Query<DiscordQuery>>(
+            Self::DISCORD_PATH,
             Query::from(query),
         )
         .await

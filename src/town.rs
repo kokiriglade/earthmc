@@ -90,6 +90,8 @@ pub struct TownStats {
     pub num_town_blocks: i32,
     /// The maximum town blocks the town can claim.
     pub max_town_blocks: i32,
+    /// The bonus town blocks this town recieves.
+    pub bonus_blocks: i32,
     /// The current number of residents in the town.
     pub num_residents: i32,
     /// The total number of trusted residents in the town.
