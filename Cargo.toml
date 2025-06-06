@@ -1,9 +1,9 @@
 [package]
 name = "earthmc"
-version = "1.0.0"
+version = "1.0.0-b"
 edition = "2024"
 license = "MIT"
-repository = "https://kokiriglade/earthmc"
+repository = "https://github.com/kokiriglade/earthmc"
 description = "Async client for interacting with the EarthMC API."
 
 [dependencies]
