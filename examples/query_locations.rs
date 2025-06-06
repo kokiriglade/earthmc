@@ -1,8 +1,8 @@
-use earthmc::{ClientBuilder, query::LocationQueryBuilder};
+use earthmc::{Client, query::LocationQueryBuilder};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default().build()?;
+    let client = Client::default();
 
     let query = LocationQueryBuilder::default()
         .add([0, 0])

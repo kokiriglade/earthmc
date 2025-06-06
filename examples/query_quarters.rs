@@ -1,11 +1,11 @@
 use std::str::FromStr;
 
-use earthmc::{ClientBuilder, query::UuidQueryBuilder};
+use earthmc::{Client, query::UuidQueryBuilder};
 use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default().build()?;
+    let client = Client::default();
 
     let query = UuidQueryBuilder::default()
         .add(Uuid::from_str("971c5315-12c2-4c15-a8c3-d65121fa4e07")?)

@@ -1,5 +1,5 @@
 use earthmc::{
-    ClientBuilder,
+    Client,
     query::{
         NearbyQueryBuilder, NearbyQueryItemBuilder, NearbySearchType,
         NearbyTarget, NearbyTargetType,
@@ -8,7 +8,7 @@ use earthmc::{
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default().build()?;
+    let client = Client::default();
 
     let query = NearbyQueryBuilder::default()
         .add(

@@ -1,8 +1,8 @@
-use earthmc::{ClientBuilder, query::SimpleQueryBuilder};
+use earthmc::{Client, query::SimpleQueryBuilder};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default().build()?;
+    let client = Client::default();
 
     let query = SimpleQueryBuilder::default()
         .add("London")

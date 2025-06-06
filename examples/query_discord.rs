@@ -1,14 +1,14 @@
 use std::str::FromStr;
 
 use earthmc::{
-    ClientBuilder,
+    Client,
     query::{DiscordQueryBuilder, DiscordQueryItem},
 };
 use uuid::Uuid;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let client = ClientBuilder::default().build()?;
+    let client = Client::default();
 
     let query = DiscordQueryBuilder::default()
         .add(DiscordQueryItem::Minecraft {

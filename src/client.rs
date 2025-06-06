@@ -68,6 +68,14 @@ impl Debug for Client {
     }
 }
 
+impl Default for Client {
+    fn default() -> Self {
+        ClientBuilder::default()
+            .build()
+            .expect("Default builder should be valid")
+    }
+}
+
 impl Client {
     /// Perform a GET request and deserialize into `T`.
     async fn get<T>(&self, path: &str) -> Result<T, Error>
