@@ -4,10 +4,7 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
-use crate::{
-    block_position::BlockPosition,
-    named_id::{NamedId, NamedIdOpt},
-};
+use crate::named_id::{NamedId, NamedIdOpt};
 
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
@@ -81,6 +78,6 @@ pub struct QuarterStats {
 #[derive(Deserialize, Serialize, PartialEq, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct QuarterCuboid {
-    pub corner_one: BlockPosition,
-    pub corner_two: BlockPosition,
+    pub corner_one: [i32; 3],
+    pub corner_two: [i32; 3],
 }

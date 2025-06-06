@@ -120,3 +120,11 @@ pub enum DiscordQueryItem {
     Minecraft { target: Uuid },
     Discord { target: String },
 }
+
+#[derive(Serialize, Builder)]
+#[serde(transparent)]
+#[builder(pattern = "owned")]
+pub struct LocationQuery {
+    #[builder(default, setter(each = "add"))]
+    values: Vec<[i32; 2]>,
+}

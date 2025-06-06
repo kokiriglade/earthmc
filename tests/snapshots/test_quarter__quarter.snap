@@ -45,16 +45,16 @@ expression: parsed
         trusted: [],
         cuboids: [
             QuarterCuboid {
-                corner_one: BlockPosition {
-                    x: 7597,
-                    y: 70,
-                    z: -3219,
-                },
-                corner_two: BlockPosition {
-                    x: 7584,
-                    y: 67,
-                    z: -3224,
-                },
+                corner_one: [
+                    7597,
+                    70,
+                    -3219,
+                ],
+                corner_two: [
+                    7584,
+                    67,
+                    -3224,
+                ],
             },
         ],
     },

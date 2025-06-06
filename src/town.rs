@@ -7,7 +7,6 @@ use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
 use crate::{
-    chunk_position::ChunkPosition,
     named_id::{NamedId, NamedIdOpt},
     permission::TownyPermissions,
     world_location::WorldLocation,
@@ -109,8 +108,8 @@ pub struct TownStats {
 pub struct TownCoordinates {
     /// The locatioin of the town's spawn point.
     pub spawn: WorldLocation,
-    pub home_block: ChunkPosition,
-    pub town_blocks: Vec<ChunkPosition>,
+    pub home_block: [i32; 2],
+    pub town_blocks: Vec<[i32; 2]>,
 }
 
 #[derive(

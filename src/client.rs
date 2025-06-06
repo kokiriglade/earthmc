@@ -18,12 +18,15 @@ use derive_builder::Builder;
 use crate::{
     discord_link::DiscordLink,
     errors::{Error, snippet_around},
+    location::LocationInfo,
     mystery_master::MysteryMaster,
     named_id::NamedId,
     nation::Nation,
     player::Player,
     quarter::Quarter,
-    query::{DiscordQuery, NearbyQuery, Query, SimpleQuery, UuidQuery},
+    query::{
+        DiscordQuery, LocationQuery, NearbyQuery, Query, SimpleQuery, UuidQuery,
+    },
     retry_strategy::{JitteredBackoff, RetryStrategy},
     server::Server,
     town::Town,
@@ -202,6 +205,7 @@ impl Client {
     const QUARTERS_PATH: &str = "quarters";
     const DISCORD_PATH: &str = "discord";
     const MYSTERY_MASTER_PATH: &str = "mm";
+    const LOCATION_PATH: &str = "location";
 
     // Fetches information about the server.
     pub async fn server(&self) -> Result<Server, Error> {
@@ -302,5 +306,17 @@ impl Client {
     pub async fn mystery_master(&self) -> Result<Vec<MysteryMaster>, Error> {
         self.get::<Vec<MysteryMaster>>(Self::MYSTERY_MASTER_PATH)
             .await
+    }
+
+    /// Queries locations.
+    pub async fn locations(
+        &self,
+        query: LocationQuery,
+    ) -> Result<Vec<LocationInfo>, Error> {
+        self.post::<Vec<LocationInfo>, Query<LocationQuery>>(
+            Self::LOCATION_PATH,
+            Query::from(query),
+        )
+        .await
     }
 }
