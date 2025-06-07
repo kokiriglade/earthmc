@@ -1,6 +1,6 @@
 [package]
 name = "earthmc"
-version = "1.0.0-b"
+version = "1.1.0"
 edition = "2024"
 license = "MIT"
 repository = "https://github.com/kokiriglade/earthmc"

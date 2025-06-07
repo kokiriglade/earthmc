@@ -23,6 +23,7 @@ use crate::{
     named_id::NamedId,
     nation::Nation,
     player::Player,
+    player_stats::StatMap,
     quarter::Quarter,
     query::{
         DiscordQuery, LocationQuery, NearbyQuery, Query, SimpleQuery, UuidQuery,
@@ -218,6 +219,7 @@ impl Client {
     const DISCORD_PATH: &str = "discord";
     const MYSTERY_MASTER_PATH: &str = "mm";
     const LOCATION_PATH: &str = "location";
+    const PLAYER_STATS_PATH: &str = "player-stats";
 
     // Fetches information about the server.
     pub async fn server(&self) -> Result<Server, Error> {
@@ -330,5 +332,11 @@ impl Client {
             Query::from(query),
         )
         .await
+    }
+
+    /// Fetches aggregated statistics for all players for
+    /// [untyped statistics](https://minecraft.wiki/w/Statistics#List_of_custom_statistic_names).
+    pub async fn player_stats(&self) -> Result<StatMap, Error> {
+        self.get::<StatMap>(Self::PLAYER_STATS_PATH).await
     }
 }

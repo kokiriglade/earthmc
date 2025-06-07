@@ -50,6 +50,7 @@ pub mod named_id;
 pub mod nation;
 pub mod permission;
 pub mod player;
+pub mod player_stats;
 pub mod quarter;
 pub mod query;
 pub mod retry_strategy;
